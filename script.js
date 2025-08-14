@@ -66,4 +66,17 @@
   });
 
   printBtn?.addEventListener('click', () => window.print());
+  
+  const details = document.querySelectorAll('.principle');
+  details.forEach((detail) => {
+    detail.addEventListener('toggle', () => {
+      if (detail.open) {
+        details.forEach((other) => {
+          if (other !== detail) {
+            other.open = false;
+          }
+        });
+      }
+    });
+  });
 })();
