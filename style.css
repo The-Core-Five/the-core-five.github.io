@@ -44,7 +44,30 @@ body{
 header{ text-align:center; margin-bottom: 2.25rem; }
 .eyebrow{ color: var(--muted); letter-spacing: .08em; text-transform: uppercase; font-size: .85rem; }
 h1{ margin:.35rem 0 .5rem; font-size: clamp(2.1rem, 5vw, 3rem); font-weight: 500; letter-spacing: -.015em; }
+h2{ margin: 1rem 0 .5rem; font-size: 1.5rem; font-weight: 600; letter-spacing: -.005em; color: var(--ink); }
 .subtitle{ max-width: 60ch; margin: 0 auto; color: var(--ink-2); font-size: 1.05rem; }
+
+/* ===== Creed card ===== */
+.creed{ 
+  background: var(--card); 
+  border: 1px solid var(--line); 
+  border-radius: var(--radius); 
+  padding: 1.25rem 1rem; 
+  box-shadow: var(--shadow); 
+  margin-top: 1.5rem;
+}
+.creed p{ margin:.35rem 0; }
+.creed b{ color: var(--accent); font-weight: 600; }
+.creed ul{ margin: .5rem 0; padding-left: 1.2rem; }
+.creed li{ margin: .4rem 0; color: var(--ink-2); }
+.creed code{ 
+  background: var(--line); 
+  color: var(--ink); 
+  padding: .15rem .4rem; 
+  border-radius: 4px; 
+  font-size: .9rem; 
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
 
 /* ===== List (accordion) ===== */
 .list{ display:grid; gap: 1rem; margin-top: 2rem; counter-reset: cf; }
@@ -134,7 +157,7 @@ details.wl[open] .wl-chev{
   padding: .8rem 0 .2rem;
 }
 
-/* Form Styling */
+/* ===== Form Styling ===== */
 .formkit-form{
   margin: 0;
 }
@@ -246,19 +269,58 @@ details.wl[open] .wl-chev{
   font-size: .9rem;
 }
 
+/* ===== Actions (buttons) ===== */
+.actions{ 
+  display:flex; 
+  justify-content:center; 
+  gap:.6rem; 
+  margin-top: 1.25rem; 
+  flex-wrap: wrap; 
+}
+.btn{ 
+  appearance:none; 
+  cursor:pointer; 
+  border-radius: 10px; 
+  border:1px solid var(--line); 
+  background: var(--card); 
+  color: var(--ink); 
+  padding:.55rem 1rem; 
+  font-family: inherit; 
+  font-size: .95rem; 
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.btn:hover{ border-color: var(--accent-2); }
+.btn:focus-visible{ outline: none; box-shadow: 0 0 0 2px var(--ring); }
+
 /* ===== Footer ===== */
-footer{ text-align:center; color: var(--muted); margin-top: 2rem; font-style: italic; }
+footer{ 
+  text-align:center; 
+  color: var(--muted); 
+  margin-top: 2rem; 
+  font-style: italic; 
+}
+
+/* ===== Links ===== */
+a{ color: var(--accent); text-decoration: underline; }
+a:hover{ color: var(--accent-2); }
+
+/* ===== Text styling ===== */
+b{ color: var(--accent); font-weight: 600; }
+i{ font-style: italic; }
 
 /* ===== Motion ===== */
 @media (prefers-reduced-motion: no-preference){
-  details.principle, details.wl, .formkit-submit, .formkit-input{ transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease; }
+  details.principle, details.wl, .formkit-submit, .formkit-input, .btn{ transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease; }
   .chev, .wl-chev{ transition: transform .2s ease; }
 }
 
 /* ===== Print ===== */
 @media print{
   body{ background:#fff; color:#000 }
-  details.wl{ display:none !important }
+  .btn, .actions, details.wl{ display:none !important }
   .container{ padding: 1rem; }
-  details.principle{ break-inside: avoid; box-shadow:none; }
+  details.principle, .creed{ break-inside: avoid; box-shadow:none; }
 }
