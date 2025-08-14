@@ -80,3 +80,32 @@
     });
   });
 })();
+
+// --- Email subscribe (ConvertKit) ---
+const ckForm = document.getElementById('ck-form');
+const ckMsg  = document.getElementById('ck-msg');
+
+ckForm?.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  ckMsg.textContent = 'Subscribing…';
+
+  const formData = new FormData(ckForm);
+  try {
+    const res = await fetch(ckForm.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' }});
+    if (res.ok) {
+      ckMsg.textContent = 'Check your inbox to confirm your subscription.';
+      ckForm.reset();
+    } else {
+      ckMsg.textContent = 'Something went wrong. Please try again.';
+    }
+  } catch {
+    ckMsg.textContent = 'Network error. Please try again.';
+  }
+});
+
+(function(){
+    if (location.hash === '#waitlist') {
+      const d = document.querySelector('details#waitlist');
+      if (d) d.open = true;
+    }
+  })();

@@ -35,7 +35,7 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   
-  <!-- Icons (leave these only if you’ve actually placed the files) -->
+  <!-- Icons -->
   <link rel="icon" href="/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="/favicon.png" />
 
@@ -52,8 +52,8 @@
     "inLanguage": "en"
   }
   </script>
-</head>
 
+</head>
 
 <body>
   <main class="container">
@@ -155,12 +155,74 @@
       </details>
     </section>
 
-    <footer>
-    <p>The Core Five is not a wish list. It's the present you choose to stand in.</p>
-    <small>&copy; 2025 The Core Five</small>
-    </footer>
+    <!-- Fixed Waitlist Section -->
+    <details class="wl" id="waitlist">
+      <summary class="wl-summary">
+        <span class="wl-badge" aria-hidden="true">★</span>
+        <div class="wl-content">
+          <span class="wl-title">Join the Waitlist</span>
+          <span class="wl-desc">Early access to the Practical Guide + weekly insights</span>
+        </div>
+        <span class="wl-chev" aria-hidden="true"></span>
+      </summary>
 
+      <div class="wl-panel">
+        <form
+          action="https://app.kit.com/forms/8435318/subscriptions"
+          class="seva-form formkit-form"
+          method="post"
+          data-sv-form="8435318"
+          data-uid="81b5453358"
+          data-format="inline"
+          data-version="5"
+          data-options='{
+            "settings": {
+              "after_subscribe": {
+                "action": "redirect",
+                "redirect_url": "https://thecorefive.org/check-email"
+              },
+              "powered_by": { "show": false }
+            },
+            "version": "5"
+          }'
+        >
+          <div data-style="clean">
+            <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
+
+            <div data-element="fields" class="formkit-fields">
+              <div class="formkit-field">
+                <label class="sr-only" for="ck-email">Email address</label>
+                <input 
+                  id="ck-email" 
+                  class="formkit-input" 
+                  name="email_address" 
+                  placeholder="you@example.com" 
+                  required 
+                  type="email" 
+                />
+              </div>
+
+              <button data-element="submit" class="formkit-submit">
+                <span>Join</span>
+              </button>
+            </div>
+          </div>
+
+          <input type="hidden" name="fields[source]" value="website" />
+          <small class="wl-note">No spam. Unsubscribe anytime.</small>
+        </form>
+      </div>
+    </details>
+
+    <footer>
+      <p>The Core Five is not a wish list. It's the present you choose to stand in.</p>
+      <small>&copy; 2025 The Core Five</small>
+    </footer>
   </main>
-<script src="script.js" defer></script>
+
+  <!-- ConvertKit Script -->
+  <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
+  
+  <script src="script.js" defer></script>
 </body>
 </html>
